@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { addRoom } from "../utils/ApiFunctions"
 import RoomTypeSelector from '../common/RoomTypeSelector'
 
+
 const AddRoom = () => {
     const [newRoom, setNewRoom] = useState({
         photo: null,
@@ -14,13 +15,13 @@ const AddRoom = () => {
     const [errorMessage, setErrorMessage] = useState("")
 
     const handleRoomInputChange = (e) => {
-        const name = e.target.name
-        let value = e.target.value
+        const name = e.target.name;
+        let value = e.target.value;
         if (name === "roomPrice") {
             if (!isNaN(value)) {
-                value.parseInt(value)
+                value = parseInt(value, 10);
             } else {
-                value = ""
+                value = "";
             }
         }
         setNewRoom({ ...newRoom, [name]: value })
@@ -60,20 +61,20 @@ const AddRoom = () => {
 
                         <form onSubmit={handleSubmit}>
                             <div className="mb-3">
-                                <lable htmlFor="roomType" className="form-lable">
+                                <label htmlFor="roomType" className="form-lable">
                                     Room Type
-                                </lable>
+                                </label>
                                 <div>
-                                   <RoomTypeSelector handleRoomInputChange={handleImageChange} 
+                                   <RoomTypeSelector handleRoomInputChange={handleRoomInputChange} 
                                     newRoom={newRoom}
                                     />
                                 </div>
                             </div>
 
                              <div className="mb-3">
-                                <lable htmlFor="roomPrice" className="form-label">
+                                <label htmlFor="roomPrice" className="form-label">
                                     Room Price
-                                </lable>
+                                </label>
                                 <input
                                 className="form-control"
                                 required
@@ -86,9 +87,9 @@ const AddRoom = () => {
                             </div>
 
                             <div className="mb-3">
-                                <lable htmlFor="photo" className="form-label">
+                                <label htmlFor="photo" className="form-label">
                                     Room Photo
-                                </lable>
+                                </label>
                                 <input
                                 id="photo"
                                 name="photo"
@@ -98,7 +99,7 @@ const AddRoom = () => {
                                 />
                                 {imagePreview && (
                                     <img src={imagePreview}
-                                    alt="preview Room Photo"
+                                    alt="Preview Room Photo"
                                     style={{maxWidth: "400px", maxHeight:"400px"}}
                                     className="mb-3"/>
                                 )}
