@@ -1,4 +1,5 @@
 import axios from "axios";
+import { ThemeProvider } from "react-bootstrap";
 
 export const api = axios.create({
     baseURL: "http://localhost:9192"
@@ -53,8 +54,18 @@ export async function getRoomTypes() {
         const response = await api.get("/rooms/room/types")
         return response.data
     } catch (error) {
-        console.error("Error fetching room types:", error);
-        throw error;
+        console.error("Error fetching room types");
+        
     }
 
+}
+
+/* this function get all rooms from the database */
+export async function getAllRooms(){
+    try {
+        const result = await api.get("/rooms/all-rooms")
+        return result.data
+    } catch (error) {
+        throw new Error("Error fetching rooms")
+    }
 }
