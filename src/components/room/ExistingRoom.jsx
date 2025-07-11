@@ -4,7 +4,7 @@ import { Col } from 'react-bootstrap';
 import { Row, Container } from 'react-bootstrap'; // if you're using them too
 import RoomFilter from '../common/RoomFilter';
 import RoomPaginator from '../common/RoomPaginator';
-import { FaEdit, FaEye, FaTrashAlt } from 'react-icons/fa';
+import { FaEdit, FaEye, FaTrashAlt, FaPlus } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 
@@ -85,12 +85,25 @@ const ExistingRoom = () => {
             ) : (
 
                 <section className="mt-5 mb-5 container">
-                    <div className="d-flex justify-content-center mb-3 mt-5">
+                    <div className="d-flex justify-content-between mb-3 mt-5">
                         <h2>Existing Rooms</h2>
+
                     </div>
-                    <Col md={6} className="mb-3 mb-md-0">
-                        <RoomFilter data={rooms} setFilteredData={setFilteredRooms} />
-                    </Col>
+
+                    <Row>
+
+                        <Col md={6} className="mb-3 mb-md-0">
+                            <RoomFilter data={rooms} setFilteredData={setFilteredRooms} />
+                        </Col>
+
+                        <Col md={6} className="d-flex justify-content-end">
+                            <Link to={"/add-room"}>
+                                <FaPlus />Add Room
+
+                            </Link>
+
+                        </Col>
+                    </Row>
 
                     <table className="table table-bordered table-hover">
                         <thead>
@@ -110,12 +123,12 @@ const ExistingRoom = () => {
                                     <td>{room.roomPrice}</td>
                                     <td className="gap-2">
                                         <Link to={`/edit-room/${room.id}`}>
-                                        <span className="btn btn-info btn-sm">
-                                            <FaEye/>
+                                            <span className="btn btn-info btn-sm">
+                                                <FaEye />
                                             </span>
-                                        <span className="btn btn-warning btn-sm">
-                                            
-                                            <FaEdit/>
+                                            <span className="btn btn-warning btn-sm">
+
+                                                <FaEdit />
                                             </span>
                                         </Link>
 
@@ -124,7 +137,7 @@ const ExistingRoom = () => {
                                             onClick={() => handleDelete(room.id)}>
                                             <FaTrashAlt />
 
-                                            
+
 
                                         </button>
                                     </td>
