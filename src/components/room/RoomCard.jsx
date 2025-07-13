@@ -18,12 +18,12 @@ const RoomCard = ({ room }) => {
                     </div>
                     <div className='flex-grow-1 ml-3 px-5'>
                         <Card.Title className='hotel-color'>{room.roomType}</Card.Title>
-                        <Card.Title className='room-price'>{room.roomPrice}/ night</Card.Title>
+                        <Card.Title className='room-price' style={{color: "#E49B0F"}}>LKR{room.roomPrice}/ night</Card.Title>
                         <Card.Text>Some room information goes here for the guest to read through</Card.Text>
                     </div>
                     <div className='flex-shrink-0 mt-3'>
                         <Link to={`bookings/${room.id}`} className="btn-book-now">
-                            View/Book Now
+                            Book Now
                         </Link>
                     </div>
                 </Card.Body>

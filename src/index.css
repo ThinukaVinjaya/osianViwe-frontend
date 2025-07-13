@@ -101,7 +101,6 @@ body {
 .hotel-color {
   color: rgb(169, 77, 123);
   
-  
 }
 
 .room-price {
@@ -115,10 +114,13 @@ body {
   height: '100vh'
 }
 
+.card-text-color{
+  color: rgb(169, 77, 123);
+}
 
 
 .parallax {
-  background-image: url("./assets/images/parrall.jpg");
+  background-image: url("./assets/images/main.jpg");
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -130,7 +132,7 @@ body {
   position: relative;
   height: 150px;
   background-size: cover;
-  background-image: url("./assets/images/services4.jpg");
+  background-image: url("./assets/images/viwewithmoon.jpg");
   background-position: center center;
 }
 
@@ -237,7 +239,7 @@ h2 {
 
 /* The header banner */
 .header-banner {
-  background-image: url("./assets/images/services-1.jpg");
+  background-image: url("./assets/images/viwewithmoon.jpg");
   background-size: cover;
   background-position: center;
   position: relative;
