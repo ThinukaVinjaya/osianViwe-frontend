@@ -8,21 +8,25 @@ const RoomCard = ({ room }) => {
             <Card>
                 <Card.Body className='d-flex flex-wrap align-items-center'>
                     <div className='flex-shrink-0 mr-3 mb-3 mb-md-0'>
-                        {room.photo && (
-                            <Card.Img
-                                variant='top'
-                                src={`data:image/png;base64, ${room.photo}`}
-                                alt='Room Photo'
-                                style={{ width: "100%", maxWidth: "200px", height: "auto" }} />
-                        )}
+                    
+                            {room.photo && (
+                                <Link to={`/book-room/${room.id}`} className="btn-book-now">
+
+                                    <Card.Img
+                                        variant='top'
+                                        src={`data:image/png;base64, ${room.photo}`}
+                                        alt='Room Photo'
+                                        style={{ width: "100%", maxWidth: "200px", height: "auto" }} />
+                                </Link>
+                            )}
                     </div>
                     <div className='flex-grow-1 ml-3 px-5'>
                         <Card.Title className='hotel-color'>{room.roomType}</Card.Title>
-                        <Card.Title className='room-price' style={{color: "#E49B0F"}}>LKR{room.roomPrice}/ night</Card.Title>
+                        <Card.Title className='room-price' style={{ color: "#E49B0F" }}>LKR{room.roomPrice}/ night</Card.Title>
                         <Card.Text>Some room information goes here for the guest to read through</Card.Text>
                     </div>
                     <div className='flex-shrink-0 mt-3'>
-                        <Link to={`bookings/${room.id}`} className="btn-book-now">
+                        <Link to={`/book-room/${room.id}`} className="btn-book-now">
                             Book Now
                         </Link>
                     </div>
