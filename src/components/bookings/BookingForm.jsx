@@ -327,13 +327,13 @@ const BookingForm = () => {
 
     if (form.checkValidity() === false || !isGuestCountValid() || !isCheckOutDateValid()) {
       e.stopPropagation()
-      return
+    }else{
+      setIsSubmitted(true)
     }
-
     setIsSubmitted(true)
   }
 
-  const handleBooking = async () => {
+  /*const handleBooking = async () => {
     try {
       const confirmationCode = await bookRoom(roomId, booking)
       navigate('/', { state: { message: confirmationCode } })
@@ -341,7 +341,7 @@ const BookingForm = () => {
       setErrorMessage(error.message || 'Booking failed')
       navigate('/', { state: { error: errorMessage } })
     }
-  }
+  }*/
 
   const handleForSubmit = async () => {
     try {
@@ -491,7 +491,7 @@ const BookingForm = () => {
               booking={booking}
               payment={calculatePayment()}
               isFormValid={isValidated}
-              onConfirm={handleBooking}
+              onConfirm={handleForSubmit}
             />
           )}
         </div>

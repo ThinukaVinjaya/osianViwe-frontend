@@ -4,6 +4,7 @@ import Header from '../common/Header'
 
 const BookingSuccess = () => {
     const location = useLocation()
+    
     const message = location.state?.message
     const error = location.state?.error
   return (
@@ -29,3 +30,6 @@ const BookingSuccess = () => {
 }
 
 export default BookingSuccess
+
+
+
