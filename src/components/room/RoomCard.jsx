@@ -10,7 +10,7 @@ const RoomCard = ({ room }) => {
                     <div className='flex-shrink-0 mr-3 mb-3 mb-md-0'>
                     
                             {room.photo && (
-                                <Link to={`/book-room/${room.id}`} className="btn-book-now">
+                                <Link to={`/book-room/${room.id}`}>
 
                                     <Card.Img
                                         variant='top'

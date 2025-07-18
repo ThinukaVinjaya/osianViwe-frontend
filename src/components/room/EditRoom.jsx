@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { getRoomById, updateRoom } from '../utils/ApiFunctions'
 import { Link, useParams } from 'react-router-dom'
 
-const EditRoom =  () => {
+const EditRoom = () => {
   const [room, setRoom] = useState({
     photo: null,
     roomType: "",
@@ -27,11 +27,11 @@ const EditRoom =  () => {
   }
 
   useEffect(() => {
-  const fetchData = async () => {
-    // ✅ async call inside useEffect
-  }
-  fetchData()
-}, [])  
+    const fetchData = async () => {
+      // ✅ async call inside useEffect
+    }
+    fetchData()
+  }, [])
 
   /*useEffect(() => {
     const fetchRoom = async () => {
@@ -47,23 +47,23 @@ const EditRoom =  () => {
   }, [roomId])*/
 
   useEffect(() => {
-  const fetchRoom = async () => {
-    try {
-      const roomData = await getRoomById(roomId);
-      setRoom(roomData);
-      
-      // Handle image if needed
-      if (roomData.photo) {
-        setImagePreview(`data:image/jpeg;base64,${roomData.photo}`);
-      }
-    } catch (error) {
-      console.error(error);
-      setErrorMessage("Failed to load room data.");
-    }
-  };
+    const fetchRoom = async () => {
+      try {
+        const roomData = await getRoomById(roomId);
+        setRoom(roomData);
 
-  fetchRoom();
-}, [roomId]);
+        // Handle image if needed
+        if (roomData.photo) {
+          setImagePreview(`data:image/jpeg;base64,${roomData.photo}`);
+        }
+      } catch (error) {
+        console.error(error);
+        setErrorMessage("Failed to load room data.");
+      }
+    };
+
+    fetchRoom();
+  }, [roomId]);
 
 
   const handleSubmit = async (event) => {
@@ -87,7 +87,7 @@ const EditRoom =  () => {
     }
   }
 
- 
+
 
   return (
     <div className="container mt-5 mb-5">
@@ -144,10 +144,15 @@ const EditRoom =  () => {
               />
               {imagePreview && (
                 <img
-                  src={imagePreview.startsWith('blob:') ? imagePreview : `data:image/jpeg;base64,${imagePreview}`}
+                  src={
+                    imagePreview.startsWith('blob:') || imagePreview.startsWith('data:image/jpeg;base64,')
+                      ? imagePreview
+                      : `data:image/jpeg;base64,${imagePreview}`
+                  }
                   alt="Room preview"
                   style={{ maxWidth: "400px", maxHeight: "400px" }}
-                  className="mt-3" />
+                  className="mt-3"
+                />
               )}
             </div>
             <div className="d-grid gap-2 d-md-flex mt-2">

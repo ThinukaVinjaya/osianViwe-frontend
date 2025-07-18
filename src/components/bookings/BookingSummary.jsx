@@ -28,7 +28,7 @@ const BookingSummary = ({ booking, payment, isFormValid, onConfirm }) => {
   }, [isBookingConfirmed, navigate])
 
   return (
-    <div className='card card-body mt-5'>
+    <div  className='card card-body mt-5'>
       <h4>Reservation Summary</h4>
 
       <p>Full Name: <strong>{booking.guestName}</strong></p>
