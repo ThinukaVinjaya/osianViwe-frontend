@@ -112,7 +112,7 @@ const Checkout = () => {
       .catch((error) => {
         setError(error.message || "Error loading room data")
         setIsLoading(false)
-      })
+      },2000)
   }, [roomId]);
 
   // Utility to get correct image source

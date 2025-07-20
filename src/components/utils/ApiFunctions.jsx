@@ -132,6 +132,7 @@ export async function bookRoom(roomId, booking){
     }
 }
 
+
 /* This function gets all bookings from the database */
 export async function getAllBookings(){
     try{
