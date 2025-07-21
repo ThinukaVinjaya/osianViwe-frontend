@@ -1,6 +1,7 @@
 import axios from "axios";
 import { ThemeProvider } from "react-bootstrap";
 
+
 export const api = axios.create({
     baseURL: "http://localhost:9192"
 })
@@ -169,3 +170,22 @@ export async function cancelBooking(bookingId) {
     }
     
 }
+
+/* This function gets all available rooms from the database with given date and a room type */
+/*export async function getAvailableRooms(checkInDate, checkOutDate, roomType) {
+    const result = await api.get(
+        `rooms/available-rooms?checkInDate${checkInDate}
+        $checkOutDate=${checkOutDate}&roomType=${roomType}`
+    )
+    return result 
+}*/
+export async function getAvailableRooms(checkInDate, checkOutDate, roomType) {
+  const result = await api.get(
+    `rooms/available-rooms?checkInDate=${encodeURIComponent(checkInDate)}&checkOutDate=${encodeURIComponent(checkOutDate)}&roomType=${encodeURIComponent(roomType)}`
+  );
+  return result;
+}
+
+
+
+
