@@ -350,7 +350,7 @@ const BookingForm = () => {
     } else {
       setIsSubmitted(true)
     }
-    setIsValidated(true)
+    setIsSubmitted(true)
   }
 
   /*const handleBooking = async () => {
@@ -383,15 +383,15 @@ const BookingForm = () => {
             <h4 className='card-title'>Reserve Room</h4>
             <Form noValidate validated={isValidated} onSubmit={handleSubmit}>
               <Form.Group>
-                <Form.Label htmlFor='guestName' className='hotel-color'>
+                <Form.Label htmlFor='guestFullName' className='hotel-color'>
                   Full Name:
                 </Form.Label>
                 <FormControl
                   required
                   type='text'
-                  id='guestName'
-                  name='guestName'
-                  value={booking.guestName}
+                  id='guestFullName'
+                  name='guestFullName'
+                  value={booking.guestFullName}
                   placeholder='Enter your full name'
                   onChange={handleInputChange}
                 />

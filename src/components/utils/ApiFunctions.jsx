@@ -150,9 +150,11 @@ export async function getBookingByConfirmationCode(confirmationCode) {
        return result.data
     }catch(error){
        if(error.response && error.response.data){
-        throw new Error(error.response.data)
+        //throw new Error(error.response.data)
+        throw new Error("No booking found for the confirmation code you entered.")
        }else{
-        throw new Error(`Error find booking : ${error.message}`)
+        //throw new Error(`Error find booking : ${error.message}`)
+        throw new Error("No booking found for the confirmation code you entered.")
        }
     }
 }
