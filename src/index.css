@@ -78,6 +78,8 @@ body {
   transition: background-color 0.3s ease;
 }
 
+
+
 .btn-book-now:hover {
   background-color: #823a58; /* slightly darker on hover */
   color: #fff;

@@ -127,7 +127,13 @@ const RoomSearch = () => {
                                     <RoomTypeSelector
                                         handleRoomInputChange={handleInputChange}
                                         newRoom={searchQuery} />
-                                    <Button variant='secondary' type='submit' disabled={isLoading}>
+                                    <Button 
+                                    variant='secondary' 
+                                    className="ms-2" 
+                                    type='submit' 
+                                    disabled={isLoading}
+                                     
+                                    >
                                         {isLoading ? 'Searching...' : 'Search'}
                                     </Button>
                                 </div>
