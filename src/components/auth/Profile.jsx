@@ -35,7 +35,7 @@ const Profile = () => {
 			if (!user?.email || !token) return;
 
 			try {
-				const response = await getBookingsByUserId(user.email, token); // ✅ using email
+				const response = await getBookingsByUserId(user.email, token); 
 				setBookings(response);
 			} catch (error) {
 				console.error("Error fetching bookings:", error.message);
@@ -51,7 +51,7 @@ const Profile = () => {
 		if (!confirmed) return;
 
 		try {
-			await deleteUser(userId, token); // ✅ pass token
+			await deleteUser(userId, token); 
 			setMessage("Account deleted successfully.");
 			localStorage.clear();
 			navigate("/");

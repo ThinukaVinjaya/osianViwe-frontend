@@ -62,18 +62,7 @@ const FindBooking = () => {
         
 
 
-    /*const handleBookingCancellation = (bookingId) => {
-        try {
-            await cancelBooking(bookingInfo.id)
-            setIsDeleted(true)
-            setBookingInfo(clearBookingInfo)
-            setConfirmationCode("")
-            setError("")
-        } catch (error) {
-            setError(error.message)
-        }
-    }*/
-
+  
     const handleBookingCancellation = async (bookingId) => {
         try {
             await cancelBooking(bookingId);

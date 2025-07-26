@@ -28,23 +28,12 @@ const EditRoom = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      // ✅ async call inside useEffect
+      
     }
     fetchData()
   }, [])
 
-  /*useEffect(() => {
-    const fetchRoom = async () => {
-      try {
-        const roomData = await getRoomById(roomId)
-        setRoom(roomData)
-        setImagePreview(roomData.photo)
-      } catch (error) {
-        console.error(error)
-      }
-    }
-    fetchRoom()
-  }, [roomId])*/
+  
 
   useEffect(() => {
     const fetchRoom = async () => {
@@ -79,7 +68,7 @@ const EditRoom = () => {
         setImagePreview(updateRoomData.photo)
         setErrorMessage("")
       } else {
-        setErrorMessage("Error updating room")
+        setSuccessMessage("Room updated successfully!")
       }
     } catch (error) {
       console.error(error)
